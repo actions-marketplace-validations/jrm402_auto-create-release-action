@@ -2,6 +2,13 @@
 
 All changes to this project are documented in this file.
 
+## v1.0.9
+
+### Changes
+
+- Update the test coverage.
+- Add the option to specify the `package-file` and `changelog-file`.
+
 ## v1.0.8
 
 ### Changes
