@@ -1,61 +1,61 @@
 {
-  "name": "auto-create-release-action",
-  "version": "1.0.9",
-  "description": "This Action will automatically create a release when a commit is pushed",
-  "main": "index.js",
-  "scripts": {
-    "local-test": "local-action . src/main.js .env",
-    "coverage": "jest --coverage && make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:write": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "",
-    "package": "ncc build src/index.js -o dist --source-map --license licenses.txt --minify",
-    "test": "jest",
-    "all": "npm i && npm run format:write && npm run lint && npm run coverage && npm run package"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jrm402/auto-create-release-action.git"
-  },
-  "author": "jrm402",
-  "license": "MIT",
-  "jest": {
-    "verbose": true,
-    "clearMocks": true,
-    "testEnvironment": "node",
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "testMatch": [
-      "**/*.test.js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "./src/**"
-    ]
-  },
-  "bugs": {
-    "url": "https://github.com/jrm402/auto-create-release-action/issues"
-  },
-  "homepage": "https://github.com/jrm402/auto-create-release-action#readme",
-  "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0"
-  },
-  "devDependencies": {
-    "@github/local-action": "^3.2.0",
-    "@vercel/ncc": "^0.38.3",
-    "jest": "^29.7.0",
-    "make-coverage-badge": "^1.2.0",
-    "prettier": "^3.4.2"
-  }
+	"name": "auto-create-release-action",
+	"version": "1.0.10",
+	"description": "This Action will automatically create a release when a commit is pushed",
+	"main": "index.js",
+	"scripts": {
+		"local-test": "local-action . src/main.js .env",
+		"coverage": "jest --coverage && make-coverage-badge --output-path ./badges/coverage.svg",
+		"format:write": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint": "",
+		"package": "ncc build src/index.js -o dist --source-map --license licenses.txt --minify",
+		"test": "jest",
+		"all": "npm i && npm run format:write && npm run lint && npm run coverage && npm run package"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jrm402/auto-create-release-action.git"
+	},
+	"author": "jrm402",
+	"license": "MIT",
+	"jest": {
+		"verbose": true,
+		"clearMocks": true,
+		"testEnvironment": "node",
+		"moduleFileExtensions": [
+			"js"
+		],
+		"testMatch": [
+			"**/*.test.js"
+		],
+		"testPathIgnorePatterns": [
+			"/node_modules/",
+			"/dist/"
+		],
+		"coverageReporters": [
+			"json-summary",
+			"text",
+			"lcov"
+		],
+		"collectCoverage": true,
+		"collectCoverageFrom": [
+			"./src/**"
+		]
+	},
+	"bugs": {
+		"url": "https://github.com/jrm402/auto-create-release-action/issues"
+	},
+	"homepage": "https://github.com/jrm402/auto-create-release-action#readme",
+	"dependencies": {
+		"@actions/core": "^1.11.1",
+		"@actions/github": "^6.0.0"
+	},
+	"devDependencies": {
+		"@github/local-action": "^3.2.0",
+		"@vercel/ncc": "^0.38.3",
+		"jest": "^29.7.0",
+		"make-coverage-badge": "^1.2.0",
+		"prettier": "^3.4.2"
+	}
 }

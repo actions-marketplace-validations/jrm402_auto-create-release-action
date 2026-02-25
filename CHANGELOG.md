@@ -2,6 +2,12 @@
 
 All changes to this project are documented in this file.
 
+## v1.0.10
+
+### Changes
+
+- Fix: bug in changelog file parsing logic.
+
 ## v1.0.9
 
 ### Changes
