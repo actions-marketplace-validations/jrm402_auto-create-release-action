@@ -20,10 +20,9 @@ async function run() {
     const draft =
       (rawDraft == null ? "false" : rawDraft).toLowerCase() === "true";
     const packageFile = rawPackageFile || "package.json";
-    const changelog = rawChangelog ? "CHANGELOG.md" : rawChangelog;
-    const changelogHeaderRegexp = rawChangelogHeaderRegexp
-      ? "^## v(\\d+\\.\\d+\\.\\d+(\\-.+)*)"
-      : rawChangelogHeaderRegexp;
+    const changelog = rawChangelog || "CHANGELOG.md";
+    const changelogHeaderRegexp =
+      rawChangelogHeaderRegexp || "^## v(\\d+\\.\\d+\\.\\d+(\\-.+)*)";
 
     // get commit information
     let commitId = null;
