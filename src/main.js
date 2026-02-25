@@ -11,13 +11,15 @@ async function run() {
     const rawTitle = core.getInput("title");
     const rawTag = core.getInput("tag");
     const rawDraft = core.getInput("draft");
-    const rawChangelog = core.getInput("changelog");
+    const rawPackageFile = core.getInput("package-file");
+    const rawChangelog = core.getInput("changelog-file");
     const rawChangelogHeaderRegexp = core.getInput("changelog-header-regexp");
 
     const title = !rawTitle ? "v$version" : rawTitle;
     const tag = !rawTag ? "v$version" : rawTag;
     const draft =
       (rawDraft == null ? "false" : rawDraft).toLowerCase() === "true";
+    const packageFile = rawPackageFile || "package.json";
     const changelog = rawChangelog ? "CHANGELOG.md" : rawChangelog;
     const changelogHeaderRegexp = rawChangelogHeaderRegexp
       ? "^## v(\\d+\\.\\d+\\.\\d+(\\-.+)*)"
@@ -33,14 +35,14 @@ async function run() {
       commitId = commit.id;
     }
 
-    const pkgInfo = await getCommitInfo(token, "package.json", commitId);
+    const pkgInfo = await getCommitInfo(token, packageFile, commitId);
     const clInfo = await getCommitInfo(token, changelog, commitId);
 
     // check package.json file
     if (pkgInfo == null) {
-      return setFailed("package.json file could not be found.", true);
+      return setFailed(`${packageFile} file could not be found.`, true);
     } else if (pkgInfo.length === 0) {
-      return setFailed("package.json file is blank.", true);
+      return setFailed(`${packageFile} file is blank.`, true);
     }
 
     // check changelog file
@@ -53,7 +55,7 @@ async function run() {
     // load version
     const _version = /"version":\s*"(.+)"/.exec(pkgInfo);
     if (_version == null || !_version[1]) {
-      return setFailed("Version was not found in package.json.", true);
+      return setFailed(`Version was not found in ${packageFile}.`, true);
     }
     const version = _version[1];
 
