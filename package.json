@@ -1,11 +1,11 @@
 {
 	"name": "auto-create-release-action",
-	"version": "1.0.8",
+	"version": "1.0.10",
 	"description": "This Action will automatically create a release when a commit is pushed",
 	"main": "index.js",
 	"scripts": {
 		"local-test": "local-action . src/main.js .env",
-		"coverage": "make-coverage-badge --output-path ./badges/coverage.svg",
+		"coverage": "jest --coverage && make-coverage-badge --output-path ./badges/coverage.svg",
 		"format:write": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "",

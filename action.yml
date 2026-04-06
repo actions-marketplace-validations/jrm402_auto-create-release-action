@@ -13,8 +13,12 @@ inputs:
     description: "Whether or not this release should be published as a draft"
     required: false
     default: "false"
-  changelog:
-    description: "The path to the CHANGELOG"
+  package-file:
+    description: "The path to the package.json file"
+    required: false
+    default: "package.json"
+  changelog-file:
+    description: "The path to the CHANGELOG file"
     required: false
     default: "CHANGELOG.md"
   changelog-header-regexp:
